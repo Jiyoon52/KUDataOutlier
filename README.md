@@ -25,17 +25,14 @@ DataFrame 형태의 시계열 데이터를 입력으로 활용하는 Outlier det
 * **이상치 imputation 여부 및 방법론(k-NN, statistical) :** 아래에 자세히 설명.
   * 이상치 **imputation 미선택 시** 최종 output : outlier index (row, column)
   * 이상치 **imputation 선택 시** 최종 output : imputation이 완료된 dataframe 
-  * 현재는 (1)outlier index, (2)imputation 완성된 dataframe이 저장되는 구조
+  * 현재는 (1)outlier index, (2)imputation 완성된 dataframe이 저
 
 <br>
 <br>
 
 ```c
-python main.py --data_dir = './data/uci_har_outlier_data.csv' \
-	       --algorithm= 'IF' \
-	       --IF_estimators = 100 \
-	       --imputation = 'KNN' \
-	       --KNN_neighbors= 5\
+python main.py --algorithm = 'IF' \
+               --imputation = 'KNN' \
 ```
 <br>
 
