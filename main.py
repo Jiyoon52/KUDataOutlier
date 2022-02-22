@@ -13,13 +13,12 @@ from outlier_detection.kernel_density_estimation import KDE
 from outlier_detection.isolation_forest import IF
 from imputation.imputer import KNN_imputer, Stats_imputer
 
+import argparse
+import json
 import warnings
 warnings.filterwarnings("ignore")
 
 def main():
-    parser = outlier_detection_argparser()
-    args = parser.parse_args()
-    
     args.save_name = f'{args.algorithm}_{args.imputation}_{args.percentile}'
     
     data = pd.read_csv(args.data_dir).iloc[:,:-1] #[10299, 562] / 1028(outliers)
@@ -80,4 +79,12 @@ def main():
     return
 
 if __name__ == "__main__":
+    parser = outlier_detection_argparser()
+    args = parser.parse_args()
+    
+    with open('config.json', 'rt') as f:
+        t_args = argparse.Namespace()
+        t_args.__dict__.update(json.load(f))
+        args = parser.parse_args(namespace=t_args)
+            
     main()

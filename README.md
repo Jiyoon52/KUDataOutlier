@@ -31,11 +31,7 @@ DataFrame 형태의 시계열 데이터를 입력으로 활용하는 Outlier det
 <br>
 
 ```c
-python main.py --data_dir = './data/uci_har_outlier_data.csv' \
-               --algorithm = 'KNN' \
-               --IF_estimators = 100 \
-               --imputation = 'KNN' \
-               --KNN_neighbors = 5 \
+python main.py
 ```
 <br>
 
